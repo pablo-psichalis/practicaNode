@@ -1,10 +1,10 @@
 const express = require('express');
-const controller = require('../controllers/twit.controller.js');
+const controller = require('../controllers/tweet.controller.js');
 
 const router = express.Router();
 const cache = [];
 
-/* GET twit listing. */
+/* GET tweet listing. */
 router
   .get('/', (req, res, next) => {
     console.log('router>cache>', req.url);

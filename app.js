@@ -6,7 +6,7 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 const APIError = require('./apierror.js');
 
-const twitRouter = require('./routes/twit.js');
+const tweetRouter = require('./routes/tweet.js');
 const userRouter = require('./routes/user.js');
 
 const app = express();
@@ -19,8 +19,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/twits', twitRouter);
-app.use('/search', twitRouter);
+app.use('/tweets', tweetRouter);
+app.use('/search', tweetRouter);
 app.use('/users', userRouter);
 
 mongoose.connect(`mongodb://localhost/${dbName}`);

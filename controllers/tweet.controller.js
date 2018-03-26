@@ -1,20 +1,20 @@
-const twitModel = require('../models/twit.models.js');
+const tweetModel = require('../models/tweet.models.js');
 
 function list() {
-  return twitModel.list();
+  return tweetModel.list();
 }
 
 function search() {
-  return twitModel.search();
+  return tweetModel.search();
 }
 
 function get(name) {
   const n = name.split('-').join(' ');
-  return twitModel.get(n);
+  return tweetModel.get(n);
 }
 
 function insert(element) {
-  return twitModel.insert(element);
+  return tweetModel.insert(element);
 }
 
 module.exports = {

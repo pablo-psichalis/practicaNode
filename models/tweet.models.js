@@ -1,12 +1,14 @@
 const mongoose = require('mongoose');
 
-const Twit = mongoose.model('Twit', {
+const Tweet = mongoose.model('Tweet', {
+  id: String,
   text: String,
   user_id: String,
+  rt_users: Array,
 });
 
 function list() {
-  return Twit.find({});
+  return Tweet.find({});
 }
 
 /* function search(search) {
@@ -26,7 +28,7 @@ function search() {
 }
 
 function create(pck) {
-  return new Twit(pck).save()
+  return new Tweet(pck).save()
     .catch((error) => {
       if (error.code === 11000) {
         const err = new Error('duplicadisimo');

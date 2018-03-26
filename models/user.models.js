@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const User = mongoose.model('User', {
+  id: String,
   name: String,
-  twit_id: String,
 });
 
 function list() {
