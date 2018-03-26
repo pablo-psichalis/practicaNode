@@ -9,6 +9,22 @@ function list() {
   return Twit.find({});
 }
 
+/* function search(search) {
+  //TODO búsqueda en mongo
+  return new Promise((resolve) => {
+    resolve([
+      { text: 'Hola', user_id: 'mrTuitero' },
+    ]);
+  });
+}
+ */
+
+function search() {
+  return new Promise((resolve) => {
+    resolve([]);
+  });
+}
+
 function create(pck) {
   return new Twit(pck).save()
     .catch((error) => {
@@ -23,5 +39,6 @@ function create(pck) {
 
 module.exports = {
   list,
+  search,
 };
 

@@ -27,6 +27,16 @@ router
       .then(res.json.bind(res))
       .catch(next);
   });
+
+/* router
+  .get('/search', (req, res, next) => {
+    controller.search()
+      .then((result) => {
+        res.json(result);
+      })
+      .catch(next);
+  }); */
+
 router
   .get('/:name', (req, res, next) => {
     controller.get(req.params.name)

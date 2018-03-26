@@ -20,6 +20,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/twits', twitRouter);
+app.use('/search', twitRouter);
 app.use('/users', userRouter);
 
 mongoose.connect(`mongodb://localhost/${dbName}`);

@@ -4,6 +4,10 @@ function list() {
   return twitModel.list();
 }
 
+function search() {
+  return twitModel.search();
+}
+
 function get(name) {
   const n = name.split('-').join(' ');
   return twitModel.get(n);
@@ -17,4 +21,5 @@ module.exports = {
   list,
   get,
   insert,
+  search,
 };
