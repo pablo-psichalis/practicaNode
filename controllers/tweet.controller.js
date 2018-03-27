@@ -4,10 +4,11 @@ function list() {
   return tweetModel.list();
 }
 
-function search() {
-  return tweetModel.search();
+function findTweetById(tweetId) {
+  return tweetModel.findTweetById(tweetId);
 }
 
+/*
 function get(name) {
   const n = name.split('-').join(' ');
   return tweetModel.get(n);
@@ -15,11 +16,9 @@ function get(name) {
 
 function insert(element) {
   return tweetModel.insert(element);
-}
+} */
 
 module.exports = {
   list,
-  get,
-  insert,
-  search,
+  findTweetById,
 };

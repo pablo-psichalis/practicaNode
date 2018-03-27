@@ -4,17 +4,11 @@ function list() {
   return userModel.list();
 }
 
-function get(name) {
-  const n = name.split('-').join(' ');
-  return userModel.get(n);
-}
-
-function insert(element) {
-  return userModel.insert(element);
+function findUserById(userId) {
+  return userModel.findUserById(userId);
 }
 
 module.exports = {
   list,
-  get,
-  insert,
+  findUserById,
 };

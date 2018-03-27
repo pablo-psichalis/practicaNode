@@ -11,7 +11,7 @@ const userRouter = require('./routes/user.js');
 
 const app = express();
 const dbName = process.env.DB || 'test';
-const cache = [];
+// const cache = [];
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -20,7 +20,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/tweets', tweetRouter);
-app.use('/search', tweetRouter);
 app.use('/users', userRouter);
 
 mongoose.connect(`mongodb://localhost/${dbName}`);
