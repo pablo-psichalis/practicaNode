@@ -15,16 +15,21 @@ router
     next();
   });
 
-
 router.get('/', (req, res, next) => {
   controller.list()
-    .then(res.json.bind(res))
+    .then((resul) => {
+      res.json(resul);
+      cache[req.url] = resul;
+    })
     .catch(next);
 });
 
 router.get('/:id', (req, res, next) => {
   controller.findUserById(req.params.id)
-    .then(res.json.bind(res))
+    .then((resul) => {
+      res.json(resul);
+      cache[req.url] = resul;
+    })
     .catch(next);
 });
 

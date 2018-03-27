@@ -2,19 +2,33 @@ const express = require('express');
 const controller = require('../controllers/tweet.controller.js');
 
 const router = express.Router();
-// const cache = [];
+const cache = [];
 
 /* GET tweet listing. */
+router
+  .get('/', (req, res, next) => {
+    console.log('router>cache>', req.url);
+    if (cache[req.url]) {
+      return res.json(cache[req.url]);
+    }
+    next();
+  });
 
 router.get('/', (req, res, next) => {
   controller.list()
-    .then(res.json.bind(res))
+    .then((resul) => {
+      res.json(resul);
+      cache[req.url] = resul;
+    })
     .catch(next);
 });
 
 router.get('/:id', (req, res, next) => {
   controller.findTweetById(req.params.id)
-    .then(res.json.bind(res))
+    .then((resul) => {
+      res.json(resul);
+      cache[req.url] = resul;
+    })
     .catch(next);
 });
 
