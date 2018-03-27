@@ -4,7 +4,7 @@ const controller = require('../controllers/tweet.controller.js');
 const router = express.Router();
 const cache = [];
 
-/* GET tweet listing. */
+// verificar si está en la caché
 router
   .get('/', (req, res, next) => {
     console.log('router>cache>', req.url);
@@ -28,6 +28,15 @@ router.get('/:id', (req, res, next) => {
     .then((resul) => {
       res.json(resul);
       cache[req.url] = resul;
+    })
+    .catch(next);
+});
+
+router.get('/search/:text', (req, res, next) => {
+  controller.getTweetsContaining(req.params.text)
+    .then((resul) => {
+      console.log(resul, req.params.text);
+      res.json(resul);
     })
     .catch(next);
 });
