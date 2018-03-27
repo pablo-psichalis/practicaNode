@@ -15,26 +15,19 @@ function getTweetsContaining(searchString) {
   return Tweet.find({ text: new RegExp(searchString, 'g') });
 }
 
+function getTweetsByUserId(userId) {
+  return Tweet.find({ user_id: userId });
+}
+
 function findTweetById(tweetId) {
   return Tweet.find({ id: tweetId });
 }
-
-/* const LIMIT = 30;
- */
-/* function searchTweets(userId) {
-  const query = {};
-  if (userId) {
-    query.$user_id = {
-      $user_id: userId,
-    };
-  }
-
-  return Tweet.find(query).limit(LIMIT);
-} */
 
 module.exports = {
   list,
   findTweetById,
   getTweetsContaining,
+  getTweetsByUserId,
+
 };
 

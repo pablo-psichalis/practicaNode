@@ -12,6 +12,10 @@ function getTweetsContaining(searchString) {
   return tweetModel.getTweetsContaining(searchString);
 }
 
+function getTweetsByUserId(userid) {
+  return tweetModel.getTweetsByUserId(userid);
+}
+
 module.exports = {
   list,
   findTweetById,

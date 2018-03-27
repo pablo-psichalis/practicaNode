@@ -24,6 +24,15 @@ router.get('/', (req, res, next) => {
     .catch(next);
 });
 
+router.get('/:name/tweets', (req, res, next) => {
+  controller.findTweetsByUsername(req.params.name)
+    .then((resul) => {
+      res.json(resul);
+      cache[req.url] = resul;
+    })
+    .catch(next);
+});
+
 router.get('/:id', (req, res, next) => {
   controller.findUserById(req.params.id)
     .then((resul) => {
